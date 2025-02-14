@@ -1,0 +1,829 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+p {
+    color: #333; 
+    font-size: 15px;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #256EBB;
+    width: 250px;
+    height: 100vh;
+    color: #fff;
+    padding-top: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 1000;
+}
+.sidebar img {
+    margin-bottom: 10px;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+   text-align: left;  
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #1D4C8E;
+    cursor: pointer;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Main content container */
+.dashboard-container {
+    margin-left: 250px;
+    width: calc(100% - 250px); /* Ensure the content fills the remaining space */
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Ensure the content grows to fill available space */
+    height: 100vh; /* Viewport height, ensures it fills the entire screen */
+    overflow: auto; /* Allow scrolling if content exceeds viewport height */
+}
+
+h3 {
+    font-size: 15px;     
+}
+h2 {
+    display: grid;
+    place-items: center;   
+    margin: 0; 
+    font-size: 15px;         
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #256EBB;
+    font-size: 20px;   
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.stat {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 18%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.stat:hover {
+    transform: scale(1.05);
+}
+
+.stat h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #256EBB;
+}
+.stat p:hover {
+    color: #3583f0; /* Darker blue color on hover */
+    transform: scale(1.05); /* Slightly enlarge the text */
+}
+/* Different colors for each stat box */
+.stat:nth-child(1) {
+    background-color: #B3E0FF; /* Brighter light blue */
+}
+
+.stat:nth-child(2) {
+    background-color: #FFECB3; /* Brighter light yellow */
+}
+
+.stat:nth-child(3) {
+    background-color: #B3F0B3; /* Brighter light green */
+}
+
+.stat:nth-child(4) {
+    background-color: #FFD9EB; /* Brighter light pink */
+}
+
+.stat:nth-child(5) {
+    background-color: #F2F2F2; /* Brighter light gray */
+}
+
+/* Chart Styles */
+canvas {
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+/* Media Query for responsiveness */
+@media screen and (max-width: 1200px) {
+    /* On larger screens, keep the sidebar and main content as is */
+    body {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+    }
+
+    .dashboard-container {
+        margin-left: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* On smaller screens, stack the sidebar on top of the content */
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        box-shadow: none;
+    }
+
+    .dashboard-container {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .stat {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* table for the users page */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Centers the table */
+    box-sizing: border-box; /* Prevents overflow by including padding in the width */
+}
+
+.user-table th, .user-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box; /* Ensure padding is part of the total width */
+}
+
+.user-table th {
+    background-color: #256EBB;
+    color: white;
+}
+
+.user-table a {
+    text-decoration: none;
+    padding: 5px 5px;
+    color: white;
+    border-radius: 5px;
+    margin: 0 0px;
+}
+
+.user-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.user-table-container {
+    width: 100%;
+    overflow-x: auto; /* Adds scrolling if the table overflows */
+    padding: 0; /* Removes any additional padding */
+}
+
+/* for the pop up */
+/* Style for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #256EBB;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #1A5097;
+}
+/* Specific class for the search button */
+.search-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #256EBB;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #1A5097;  /* Darker blue on hover */
+}
+
+.search-btn:focus {
+    outline: none;  /* Remove the outline when clicked */
+}
+
+.search-btn:active {
+    background-color: #174C7F;  /* Even darker blue when pressed */
+}
+
+/* for chat management */
+/* Message Container */
+.message-container {
+    margin-left: 250px; /* Align with the sidebar */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+/* Title for message management */
+.message-container h3 {
+    font-size: 24px;
+    color: #256EBB;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Message Styles */
+.message {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Header */
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.message-header span {
+    font-size: 14px;
+}
+
+/* Message Body */
+.message-body {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.message-body p {
+    margin: 0;
+}
+
+/* Message Footer */
+.message-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-footer small {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+.reset-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: red; /* Set the background color to red */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none; 
+}
+
+.reset-btn:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+.reset-btn:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.5); /* Optional, a subtle glow effect on focus */
+}
+/* for inquiries (admin) */
+textarea {
+    width: 100%; /* Makes the textarea take up the full width of its container */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+.send-reply-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 10px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for background-color */
+}
+
+/* Add hover effect */
+.send-reply-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Add active effect */
+.send-reply-btn:active {
+    background-color: #3e8e41; /* Even darker green when the button is clicked */
+}
+
+/* Add focus effect */
+.send-reply-btn:focus {
+    outline: none; 
+    box-shadow: 0 0 3px 2px #4CAF50; 
+}
+
+/* Styling specific to management form */
+.user-management-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    margin: 20px 0; 
+    width: 100%; 
+}
+
+.user-management-form input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;  /* Adjust the width */
+}
+
+.user-management-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;  /* Adjust the width of the select */
+}
+
+.user-management-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #256EBB;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-management-form button:hover {
+    background-color: #1a4e9f;
+}
+
+.user-management-form select,
+.user-management-form input[type="text"] {
+    transition: border-color 0.3s;
+}
+
+.user-management-form input[type="text"]:focus,
+.user-management-form select:focus {
+    border-color: #256EBB;
+    outline: none;
+}
+
+.message-management-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Space between input, select, and button */
+    margin: 20px 0;  /* Adjust as needed */
+    width: 100%;  /* Make the form 100% width */
+}
+.message-management-form input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;  /* Adjust the width */
+}
+
+.message-management-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;  /* Adjust the width of the select */
+}
+
+.message-management-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #256EBB;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.message-management-form button:hover {
+    background-color: #1a4e9f;
+}
+
+.message-management-form select,
+.message-management-form input[type="text"] {
+    transition: border-color 0.3s;
+}
+
+.message-management-form input[type="text"]:focus,
+.message-management-form select:focus {
+    border-color: #256EBB;
+    outline: none;
+}
+
+.item-management-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Space between input, select, and button */
+    margin: 20px 0;  /* Adjust as needed */
+    width: 100%;  /* Make the form 100% width */
+}
+
+.item-management-form input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;  /* Adjust the width */
+}
+
+.item-management-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;  /* Adjust the width of the select */
+}
+
+.item-management-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #256EBB;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.item-management-form button:hover {
+    background-color: #1a4e9f;
+}
+
+.item-management-form select,
+.item-management-form input[type="text"] {
+    transition: border-color 0.3s;
+}
+
+.item-management-form input[type="text"]:focus,
+.item-management-form select:focus {
+    border-color: #256EBB;
+    outline: none;
+}
+
+
+
+.duration-container {
+    display: none;
+}
+
+.duration-container.active {
+    display: block;
+}
+
+/* Verify Button Style */
+.verify-btn {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px;
+    margin: 5px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 12px; 
+    transition: background-color 0.3s ease; 
+}
+
+/* Hover effect for Verify Button */
+.verify-btn:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
+
+/* Reject Button Style */
+.reject-btn {
+    background-color: #f44336; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    margin: 5px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 12px; 
+    transition: background-color 0.3s ease; 
+}
+
+.view-reported-link {
+    display: inline-flex; /* Use flex to align the icon and text */
+    align-items: center; /* Vertically center the icon with text */
+    padding: 8px 16px;
+    background-color: #256EBB; /* Background color for the link */
+    color: #fff; /* Text color */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow effect */
+}
+
+.view-reported-link i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.view-reported-link:hover {
+    background-color: #1e5a8b; /* Darker shade for hover effect */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.view-reported-link:active {
+    background-color: #1c4a74; /* Even darker shade when clicked */
+    transform: translateY(0); /* Reset the hover effect */
+}
+
+.zoom-image {
+    max-width: 100px;   /* Adjust the width of the image */
+    height: auto;      /* Maintain the aspect ratio */
+    
+}
+
+.fallback-image {
+    object-fit: contain;
+}
+
+ .stat-gif {
+    width: 90px; /* Adjust size */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px; /* Centers the GIF */
+    
+}
+.stat p {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+/* Links */
+.stat a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.stat h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Flex container for charts and top places */
+.chart-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px; /* Adds spacing between elements */
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Analytics Section: Make it wider */
+.analytics-reporting {
+    flex: 2; /* Takes up more space */
+    min-width: 400px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+.analytics-reporting:hover {
+    transform: translateY(-5px);
+}
+
+/* Top Places Section: Make it smaller */
+.top-places-section {
+    flex: 1; /* Takes up less space */
+    min-width: 250px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-places-section:hover {
+    transform: translateY(-5px);
+}
+
+/* Title Styling */
+.analytics-reporting h2, .top-places-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A4B8A;
+    margin-bottom: 15px;
+}
+
+/* Ensure the canvas scales properly */
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* List Styling */
+.top-places-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.top-places-list li {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+   /* Light Grey/Blue */
+    color: #14171a;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.top-places-list li strong {
+    color: #1da1f2; /* Twitter Blue */
+}
+
+.top-places-list li:hover {
+    background: #edf5fa;
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .chart-container {
+        flex-direction: column; /* Stack elements in a column */
+    }
+
+    .analytics-reporting,
+    .top-places-section {
+        width: 100%; /* Ensure full width */
+    }
+}
+/* View More Button */
+.view-more-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #1da1f2;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.view-more-btn:hover {
+    background-color: #1A4B8A;
+    transform: scale(1.05);
+}

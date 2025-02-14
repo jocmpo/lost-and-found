@@ -1,0 +1,443 @@
+nav {
+    display: none;
+}
+
+    .profile-photo {
+        transition: 0.3s;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-size: cover; /* Ensures the image fits properly */
+        background-position: center;
+        border: 1px solid #ffffff; /* White border to make it stand out */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        display: block; /* Makes it easier to center */
+        margin: 0 auto; /* Horizontally centers the image */  
+    }
+   
+    h3.user-name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #14171a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease, transform 0.3s ease;
+    }
+
+    h3.user-name:hover {
+        color: #1da1f2;
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02); /* Slightly increase size */
+    }
+
+    .sidenav{
+        display: none;
+    }
+
+@media(max-width: 699px) {
+
+    body {
+        padding-bottom: 60px;
+        margin-top: 60px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #4b84ff;
+        padding: 20px;
+        bottom: 0;
+        z-index: 1000;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* Left side - Home Icon */
+    .navbar-left {
+        display: none;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 15px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-link:hover {
+        background-color: #296dff;
+        border-radius: 8px;
+    }
+
+    /* Center - Navbar Links */
+    .navbar-center {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .navbar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar-links li {
+        margin: 0 3%;
+
+    }
+
+    .navbar-link.active {
+        background-color: #296dff;
+        color: #ffffff;
+        border-radius: 8px;
+    }
+
+    /* Right side - Settings Icon and Dropdown */
+    .navbar-right {
+        flex-grow: 1;
+        align-items: center;
+    }
+     .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s ease;
+    }
+
+    .sidenav a {
+        padding: 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav .sidehead {
+        margin-bottom: 40px;
+    }
+
+    .sidenav a:hover {
+        color: #296dff;
+        border-radius: 8px;
+        background-color: #e8f5fe;
+        transform: translateX(10px); /* Subtle hover movement */
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        padding: 0;
+        color: #296dff
+    }
+
+    .logout a {
+        display: block; /* Makes the entire padding area clickable */
+        text-align: right;
+        margin-top: 80%;
+        padding: 10px;
+        padding-right: 20px;
+        color: #000; /* Default text color */
+        text-decoration: none; 
+    }
+    
+    .logout a:hover {
+        color: #1da1f2; /* Changes text color on hover */
+        background-color: rgba(29, 161, 242, 0.1); /* Optional: Adds a background hover effect */
+        border-radius: 5px; /* Optional: Rounds corners for better aesthetics */
+    }
+    
+
+    h3.user-name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #14171a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease, transform 0.3s ease;
+    }
+
+    h3.user-name:hover {
+        color: #1da1f2;
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02); /* Slightly increase size */
+    }
+
+}
+
+/* Styles for web */
+@media (min-width: 700px) {
+
+    body {
+        padding-top: 50px;
+        /* Adjust according to your navbar height */
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #4b84ff;
+        padding: 10px 20px;
+        top: 0;
+        z-index: 1000;
+        /* Ensure it stays on top of other content */
+        width: 100%;
+        position: fixed;
+        /* Fixed position for the navbar */
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
+        /* Prevents padding from affecting width */
+    }
+
+    /* Left side - Home Icon */
+    .navbar-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 15px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-link:hover {
+        background-color: #296dff;
+        /* Highlighted color */
+        border-radius: 8px;
+    }
+
+    /* Center - Navbar Links */
+    .navbar-center {
+        flex-grow: 1;
+        text-align: right;
+    }
+
+    .navbar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar-links li {
+        margin: 0 15px;
+    }
+
+    .navbar-link.active {
+        background-color: #296dff;
+        color: #ffffff;
+        border-radius: 8px;
+    }
+
+    /* Right side - Settings Icon and Dropdown */
+    .navbar-right {
+        margin-left: auto; 
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        min-width: 150px;
+    }
+
+    .dropdown-content a {
+        color: #14171a;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #e8f5fe;
+        color: #1da1f2;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 200px;
+    z-index: 100;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.dropdown-content a, .user-name {
+    display: block;
+    padding: 12px 15px; 
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease-in-out;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+@media (max-width: 768px) { 
+    .dropdown {
+        display: none;
+    }
+}
+
+
+.mobile-navbar {
+    display: none;
+}
+
+/* Mobile View: Show Mobile Navbar */
+@media screen and (max-width: 767px) {
+    .mobile-navbar {
+        display: flex;
+        background-color: #4b84ff;
+        color: #f5f5f5;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9999; /* Ensure it's above all other content */
+        align-items: center;
+        justify-content: space-between; 
+    }
+
+    /* Mobile Profile Picture */
+    .mobile-profile-photo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* Hamburger Menu Icon */
+    .menu-icon {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    body.sidenav-open {
+        overflow: hidden;
+    }
+    .sidenav {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        padding-top: 10px;
+        transition: 0.3s;
+        z-index: 10000;
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between; /* Pushes logout to the bottom */
+        padding-bottom: 20px; /* Ensure spacing at the bottom */
+    }
+    
+    .sidenav-links {
+        flex-grow: 1; /* Ensures other links take up available space */
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .sidenav a {
+        padding: 12px 16px;
+        text-decoration: none;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: block;
+        transition: 0.3s;
+    }
+    
+    /* Profile Picture Styling */
+    .sidenav-profile-photo {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background-size: cover; 
+        background-position: center;
+        border: 1px solid #ffffff; 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        display: block; 
+        margin: 40px auto 20px auto; 
+    }
+    
+    .sidenav-logout {
+        margin-top: auto; 
+        padding: 30px 16px;
+        text-align: right;
+    }
+    
+    .sidenav-logout a {
+        display: block;
+        padding: 12px;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    
+    .sidenav-logout a:hover {
+        background-color: #e8f5fe;
+        border-radius: 8px;
+        color: #296dff;
+    }
+    
+}
+

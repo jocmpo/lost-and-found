@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+</head>
+<body>
+  <div class="welcome-container">
+    <h1>Welcome to Lost and Found</h1>
+    <p>Find your lost items or report found belongings easily with our platform.</p>
+    <a href="auth.php" class="welcome-btn">Get Started</a>
+  </div>
+
+    <div id="navbar"></div>
+
+    <div id="items" class="items"></div>
+    
+    <div id="footer-container"></div>
+
+ <script>
+    async function loadFooter() {
+        try {
+            const response = await fetch("includes/footer.php"); 
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const footerHtml = await response.text(); 
+            document.getElementById("footer-container").innerHTML = footerHtml;
+        } catch (error) {
+            console.error("Error loading footer:", error);
+        }
+    }
+
+    async function loadNavbar() {
+        try {
+            const response = await fetch("navbar.php"); 
+            const navbarHtml = await response.text(); 
+            document.getElementById("navbar").innerHTML = navbarHtml;
+        } catch (error) {
+            console.error("Error loading navbar:", error);
+        }
+    }
+    async function fetchItems() {
+    try {
+        const response = await fetch("dashboard.php"); 
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const itemsDiv = doc.querySelector(".items");
+
+        if (itemsDiv) {
+            document.getElementById("items").innerHTML = itemsDiv.innerHTML;
+
+            // Initialize Swiper after loading items
+            new Swiper(".swiper-container", {
+                slidesPerView: 1, 
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    1200: { slidesPerView: 4 }, 
+                    1024: { slidesPerView: 3 }, 
+                    768: { slidesPerView: 2 }, 
+                    576: { slidesPerView: 1.5 }, 
+                    480: { slidesPerView: 1 }, 
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+        } else {
+            console.error("No '.items' div found in dashboard.php");
+        }
+    } catch (error) {
+        console.error("Error loading items:", error);
+    }
+}
+
+    loadFooter();
+    loadNavbar();
+    fetchItems();
+  
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
+<style>
+  @media (max-width: 768px) { 
+    .navbar {
+        display: none;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+}
+
+
+</style>

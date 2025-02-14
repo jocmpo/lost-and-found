@@ -1,0 +1,347 @@
+/* General Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+   
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #14171a;  /* Dark color for headings */
+}
+
+h3 {
+    text-align: center;
+    margin-top: 20px;
+    color: #14171a;  /* Dark color for headings */
+}
+h4 {
+    color: #14171a;  /* Dark color for headings */
+}
+form {
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 60%;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    form {
+        max-width: 85%;
+        width: 85%;
+        margin-bottom: 20px;
+    }  
+    
+    h3 {
+        margin-top: 80px;
+    }
+}
+
+form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="file"] {
+        width: 95%;
+    }
+}
+
+form button {
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #145dbb;
+}
+
+form a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #1877f2;
+    text-decoration: none;
+    text-align: right;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Picture Section */
+.pp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+    border: 5px solid #e1e8ed;
+}
+
+@media (max-width: 768px) { 
+    .pp {
+        width: 100px;
+        height: 100px;
+    }
+}
+/* Buttons */
+button[type="button"] {
+    background-color: #e4e6eb;
+    color: #333;
+}
+
+button[type="button"]:hover {
+    background-color: #d6d8db;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #e1e8ed;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Success Modal */
+.modal.success .modal-content {
+    background-color: #e6ffed;
+    border-color: #b2e8b2;
+}
+
+.modal.success .modal-content p {
+    color: #14171a;
+}
+
+/* Error Modal */
+.modal.error .modal-content {
+    background-color: #ffe6e6;
+    border-color: #a72e2e;
+}
+
+.modal.error .modal-content p {
+    color: #14171a;
+}
+
+/* Modal Content Text */
+.modal-content p {
+    font-size: 1.1rem;
+    color: #657786;
+}
+
+/* Address Section Styling */
+.form-group {
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+hr.custom-divider {
+    border: 1px solid #256EBB;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+select.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+select.form-control:focus {
+    border: 1px solid #000;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+input.form-control:focus {
+    border: 1px solid #000;
+}
+
+/* Error Styling */
+input.form-control:invalid {
+    border-color: red;
+}
+
+input.form-control:valid {
+    border-color: green;
+}
+
+/* Hidden input fields for text */
+input[type="hidden"] {
+    display: none;
+}
+
+.suggestions {
+    position: absolute;
+    background: white;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block; /* Ensure it's visible */
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background: #f0f0f0;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #e1e8ed;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Success and Error Messages */
+.modal-content p {
+    font-size: 1.1rem;
+    color: #657786;
+}
+
+#messageModal .modal-content {
+    background-color: #e6ffed;
+    border-color: #b2e8b2;
+}
+
+#errorModal .modal-content {
+    background-color: #ffe6e6;
+    border-color: #a72e2e;
+}
+
+#messageModal .modal-content p,
+#errorModal .modal-content p {
+    color: #14171a;
+}

@@ -1,0 +1,413 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+   
+}
+p {
+    color: #657786; /* Twitter blue for the link color */
+    text-decoration: none; /* Remove underline */
+}
+p a {
+    color: #1da1f2; /* Twitter blue for the link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for the link */
+p a:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+/* Container */
+.container {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+/* User Profile Section */
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .user-profile {
+        padding-left: 20px;
+    }
+}
+
+.profile-header {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 15px;
+    text-align: left;
+    flex-wrap: nowrap; 
+    width: 100%;
+}
+
+.pp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #e1e8ed;
+}
+
+.profile-info {
+    text-align: left;
+    padding: 20px;
+}
+
+.profile-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+.settings-icon {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    position: absolute; /* Position the icon relative to its parent */
+    right: 15px; /* Pushes the icon towards the right */
+    top: 15px; /* You can adjust this to position the icon vertically */
+}
+
+.settings-icon:hover {
+    color: #256EBB;
+}
+
+.btn-message {
+    padding: 10px 20px;
+    background-color: #256EBB;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 100%; 
+    max-width: 200px; 
+    box-sizing: border-box;
+}
+
+/* Optional: For smaller screens */
+@media (max-width: 600px) {
+    .btn-message {
+        width: 90%; 
+    }
+}
+
+.btn-message:hover {
+    background-color: #1a5c9a;
+}
+
+/* Item Cards Section */
+.profile-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr; /* One item per row */
+    gap: 20px;
+}
+
+.item-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-5px); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+
+.item-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.item-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.item-card img {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for transform and opacity */
+    object-fit: contain;
+}
+
+.item-card img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    opacity: 0.8; /* Slightly reduce opacity */
+}
+
+
+.status {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.status.available {
+    background-color: #28a745;
+    color: white;
+}
+
+.status.unavailable {
+    background-color: #dc3545;
+    color: white;
+}
+
+.item-actions {
+    display: flex;
+    justify-content: left; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    flex-wrap: nowrap; 
+    justify-content: flex-start; 
+}
+
+.item-actions .btn {
+    flex-direction: row;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 10px; /* Remove margin-top to keep them in one line */
+    white-space: nowrap; /* Prevent text from breaking */
+}
+
+
+.item-actions .btn-edit {
+    background-color: #4CAF50; /* Green color for edit */
+    color: white;
+    text-decoration: none;
+}
+
+.item-actions .btn-delete {
+    background-color: #f44336; /* Red color for delete */
+    color: white;
+    text-decoration: none;
+}
+
+.item-actions .btn:hover {
+    opacity: 0.8; /* Add hover effect */
+}
+
+
+/* Modal styles */
+#imageModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 100%; /* Ensure the modal covers the full screen */
+    height: 100%; /* Cover the full screen height */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#imageModal img {
+    width: 100%; 
+    max-height: 100%;
+    object-fit: contain; 
+    cursor: zoom-in; 
+    transition: transform 0.3s ease; 
+    transform: scale(1.1);  
+}
+#imageModal img.zoomed {
+    width: 100%; 
+    max-height: 100%;
+    object-fit: contain; 
+    cursor: zoom-in; 
+    transition: transform 0.3s ease; 
+    transform: scale(1.1);  
+}
+/* Close button styles */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001; /* Ensure the close button is on top */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#caption {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: row;
+    }
+
+    .profile-info{
+        padding: 20px;
+    }
+    .profile-info h3 {
+        font-size: 18px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .btn-message {
+        padding: 8px 15px;
+    }
+
+    .profile-container {
+        grid-template-columns: 1fr; /* One item per row */
+    }
+
+    .item-card {
+        padding: 15px;
+    }
+
+    .item-card h3 {
+        font-size: 18px;
+    }
+
+    .item-card p {
+        font-size: 14px;
+    }
+
+    .status {
+        font-size: 14px;
+    }
+
+    .item-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .btn-edit, .btn-delete {
+        width: 30%;
+        text-align: center;
+    }
+
+    .item-actions .btn {
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    
+    .item-card img {
+        height: 250px;
+    }
+
+    #imageModal img {
+        margin-top: 50%;
+    }
+
+    .pp {
+        width: 100px;
+        height: 100px;
+    }
+
+}
+.fallback-image {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;   /* Ensures the entire image is visible */
+}
+
+.status.found {
+    background-color:#e6ffed; /* Soft green for found status */
+    color: #2f9e1f ; /* Pale green text */
+}
+
+.status.lost {
+    background-color: #ffe6e6; /* Light red for lost status */
+    color: #a72e2e; /* Dark red text */
+}
+
+.status.claimed {
+    background-color: #fff8e1; /* Soft yellow for claimed status */
+    color: #a68500; /* Dark yellow text */
+}
+
+/* Chat Link Styling */
+a.chat-link {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #1da1f2; /* Twitter blue background */
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+a.chat-link i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 18px; /* Size of the icon */
+}
+
+/* Hover effect for the chat link */
+a.chat-link:hover {
+    background-color: #1A4B8A; /* Darker blue on hover */
+}
+
+/* Optional: Focus style for accessibility */
+a.chat-link:focus {
+    outline: 2px solid #1A4B8A;
+    outline-offset: 2px;
+}
+
+.item-link{
+    color: #1da1f2;  /* Twitter blue */
+    text-decoration: none;
+}
+
+.item-link:hover {
+    text-decoration: underline;
+}

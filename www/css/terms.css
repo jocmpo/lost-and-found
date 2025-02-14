@@ -1,0 +1,160 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 90%;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    color: #256ebb;
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+/* Paragraph Styles */
+p {
+    margin: 10px 0;
+}
+
+/* List Styles */
+ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Link Styles */
+a {
+    color: #256ebb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+section ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+section ul li a {
+    color: #256ebb;
+    font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+h1 {
+    font-size: 2em;
+    color: #14171a;
+    border-bottom: 2px solid #e1e8ed;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding-right: 100px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+       
+        padding: 3%;
+      
+    }
+
+    header h1 {
+        font-size: 2em;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+
+}
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    display: none; /* Hidden by default */
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* When active, rotate arrow */
+.faq-question.active .arrow {
+    transform: rotate(180deg);
+}
+.box{
+    width:100%;
+}
+.icon {
+    vertical-align: middle; 
+    margin-right: 10px; 
+  }
+  

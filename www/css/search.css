@@ -1,0 +1,635 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    text-align: center;
+    color: #14171a;  /* Dark color for headings */
+}
+
+/* Ensure the form spans full width of the screen */
+form {
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 100%;          
+    max-width: 100%;        
+    box-sizing: border-box; 
+    background-color: #ffffff;
+    border-radius: 5px;  
+}
+
+/* Container for the search form */
+.form-row {
+    display: flex;             /* Align items in a row */                 /* Space between form elements */
+    align-items: center;       /* Align items vertically in the center */
+    flex-wrap: nowrap;    
+    width: 100%;     /* Prevent wrapping to new lines */
+    gap: 10px; 
+}
+/* Style for each form element */
+.form-row label {
+    margin-right: 10px;        /* Space between label and input */
+    font-weight: bold;         /* Bold text */
+}
+
+/* Style for input fields and select */
+.form-row input, .form-row select {      /* Space inside inputs and button */
+    font-size: 14px;           /* Set font size for better readability */
+    border: 1px solid #ccc;    /* Border for inputs */
+    border-radius: 10px;       /* Round corners for input fields */ 
+    width: 100%;               /* Set width to 100% to make the elements fill the container */
+    max-width: 100%;
+}
+
+/* For smaller screens, stack the form elements vertically */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column; /* Stack the items vertically */
+    }
+
+    .form-row label,
+    .form-row input,
+    .form-row select,
+    .form-row button {
+        width: 100%; /* Ensure they take full width in the column layout */
+        margin-bottom: 10px; /* Add some spacing between items */
+    }
+
+    .form-row label {
+        text-align: left; /* Align text left for better readability */
+    }
+}
+
+
+/* Style for input fields and select */
+.form-row input, .form-row select, .form-row button {
+    padding: 8px 12px;         /* Space inside inputs and button */
+    font-size: 14px;           /* Set font size for better readability */
+    border: 1px solid #ccc;    /* Border for inputs */
+    border-radius: 25px;       /* Round corners for input fields */ 
+}
+
+/* Button style */
+.form-row button {
+    background-color: #1da1f2; /* Twitter blue background */
+    color: white;               /* Button text color */
+    font-weight: bold;          /* Bold text */
+    border: none;               /* Remove default border */
+    cursor: pointer;           /* Pointer cursor on hover */
+    border-radius: 15px;        /* Round corners */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    margin-left: 0;             /* Remove any left margin */
+    margin-right: 1.5%;         /* Push the button to the left */
+    display: block;             /* Make the button block-level to center it */
+}
+
+
+/* Button hover effect */
+.form-row button:hover {
+    background-color: #1A4B8A; /* Darker blue on hover */
+}
+
+/* Ensures form items stay in one row even on smaller screens */
+@media (max-width: 768px) {
+
+        form[action="search.php"] {
+            width: 100%; /* Increase width on mobile */
+            padding: 15px; /* Adjust padding for smaller screens */
+        }
+    
+    
+    .form-row {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: flex-start; /* Ensure inputs stretch to full width */
+
+        max-width: 100%;
+    }
+
+    .form-row input, .form-row button {
+        max-width: 94%; 
+    }
+
+    .form-row select {
+        max-width: 100%; 
+    }
+    .form-row label {
+        margin-right: 0; /* Remove margin on small screens */
+    }
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #14171a;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #1da1f2;  /* Twitter blue */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #1A4B8A; /* Darker blue on hover */
+}
+
+/* Results Section */
+h3 {
+    text-align: center;
+    color: #14171a;  /* Dark color for headings */
+}
+
+.items-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+}
+.items-list li:hover {
+    transform: translateY(-5px); /* Lift item up */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+ 
+.item-card h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #14171a;
+    
+}
+
+.item-card p {
+    margin: 5px 0;
+    color: #657786;  /* Lighter text color */
+}
+
+.item-card a {
+    color: #1da1f2;  /* Twitter blue */
+    text-decoration: none;
+}
+
+.item-card a:hover {
+    text-decoration: underline;
+}
+
+.item-card:hover {
+    background: #f0f4f8; /* Slightly darker hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+.zoom-image {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+}
+
+.zoom-image:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-content {
+    top: 5%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+}
+
+.modal-content img {
+    width: 100%; /* Fit the modal's width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80vh; /* Ensure the image fits within the modal */
+    object-fit: contain; /* Prevent stretching or cropping */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    cursor: zoom-in; 
+    margin-top: 2%;
+}
+
+/* Zoomed state */
+.modal-content img.zoomed {
+    transform: scale(1.5); /* Scale the image to 1.5x its original size */
+    cursor: zoom-out; /* Change cursor to indicate zoom-out functionality */
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    font-size: 32px; /* Slightly larger font size for better visibility */
+    color: white; /* Darker color for better contrast */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.close-btn:hover {
+    color: #ff0000; /* Change color to red on hover for attention */
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Modal Display when Targeted */
+.modal:target {
+    display: flex;
+}
+/* Styling for the #report-modal */
+#report-modal {
+    display: none; /* Hidden by default */
+    background-color: white;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+#report-modal .modal-content {
+    text-align: left;
+    background-color: white;
+    margin: 10% auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 50%;
+    position: relative;
+    animation: slideDown 0.4s ease; /* Smooth animation */
+}
+
+#report-modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#report-modal .close-btn:hover {
+    color: #ff4d4d;
+}
+
+#report-modal label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#report-modal select,
+#report-modal input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#report-modal select:focus,
+#report-modal input[type="text"]:focus {
+    border-color: #256ebb;
+    outline: none;
+}
+
+#report-modal #other-reason-container {
+    margin-top: 10px;
+}
+
+#report-modal button[type="submit"] {
+    background-color: #256ebb;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#report-modal button[type="submit"]:hover {
+    background-color: #204f8a;
+    transform: translateY(-2px);
+}
+
+#report-modal button[type="submit"]:active {
+    background-color: #183c68;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+
+    .items-list {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content img {
+        margin-top: 50%;
+    }
+    #report-modal .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 80%;
+        position: relative;
+        animation: slideDown 0.4s ease; /* Smooth animation */
+        margin-top: 50%;
+    }
+}
+
+/* Chat Link Styling */
+a.chat-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1da1f2; /* Twitter blue background */
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+a.chat-link i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 18px; /* Size of the icon */
+}
+
+/* Hover effect for the chat link */
+a.chat-link:hover {
+    background-color: #1A4B8A; /* Darker blue on hover */
+}
+
+/* Optional: Focus style for accessibility */
+a.chat-link:focus {
+    outline: 2px solid #1A4B8A;
+    outline-offset: 2px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: capitalize;
+    margin-top: 5px;
+    
+    /* Center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Optional: Center vertically if needed */
+    display: block;          /* Makes the element block level for vertical centering */
+    text-align: center;      /* Centers the content inside the status element */
+}
+
+.status.found {
+    background-color: #e6ffed; /* Soft Green */
+    color: #1f7a1f;
+    border: 1px solid #b2e8b2;
+}
+
+.status.claimed {
+    background-color: #fff8e1; /* Soft Yellow */
+    color: #a68500;
+    border: 1px solid #ffe59a;
+}
+
+.status.lost {
+    background-color: #ffe6e6; /* Soft Red */
+    color: #a72e2e;
+    border: 1px solid #ffb3b3;
+}
+
+/* Item Image */
+.item-card img {
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* General container styling for items */
+.items {
+    padding: 10px;
+    background-color: transparent;
+    margin: 0 auto;
+    max-width: 100%;
+    z-index: 1;
+    background-color: trans;
+}
+
+/* Styling for the item list */
+.items-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Styling for each item card */
+.item-card {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); /* 3 items per row */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Stack the elements vertically */
+    justify-content: space-between; /* Distribute space between items */
+    background-color: #ffffff;
+    border: 1px solid #e1e8ed;  /* Lighter border color */
+    position: relative;
+}
+.item-card:hover {
+    transform: translateY(-5px); /* Lift the card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Description and location styling */
+.item-card p {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.item-card .zoom-link img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.item-card .zoom-link img:hover {
+    transform: scale(1.1); /* Zoom effect on image hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .item-card {
+        width: calc(50% - 20px); /* 2 items per row */
+    }
+    .fallback-image {
+        width: 50px;    
+        height: 50px;   
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .item-card {
+        width: calc(100%); /* 1 item per row */
+    }
+}
+
+.profile-container {
+    display: inline-flex;        /* Keeps the image and text on the same line */
+    align-items: center;         /* Vertically aligns the image and the username */
+}
+
+.profile-img {
+    width: 50px;                 /* Set fixed width */
+    height: 50px;                /* Set fixed height */
+    border-radius: 50%;          /* Makes the image circular */
+    object-fit: cover;           /* Ensures the image fills the square area without stretching */
+    margin-right: 10px;          /* Adds space between the image and the name */
+    overflow: hidden;            /* Clips the image to fit inside the circle */
+}
+
+.profile-link {
+    font-weight: bold;           /* Makes the username bold */
+    text-decoration: none;       /* Removes underline */
+    color: #333;                 /* Text color */
+    white-space: nowrap;         /* Prevents text from wrapping */
+}
+
+.profile-link:hover {
+    text-decoration: underline;  /* Underlines username on hover */
+}
+
+.profile-divider {
+    margin-top: 1px;      
+    border: none;          
+    border-top: 2px solid #ccc;  
+    width: 100%;           
+    margin-bottom: 8px;
+}
+
+.fallback-image {
+    display: block;
+    margin: 0 auto;  
+    width: 200px;    
+    height: 200px;   
+}
+/* Ensure the parent container is set up as a flex container */
+.status-container {
+    display: flex;
+    justify-content: space-between; /* Place items on opposite sides */
+    align-items: center; /* Vertically center the items */
+}
+
+/* Optional: Adjust the styling of the status to have consistent margin */
+.status {
+    margin: 0;
+}
+
+
+/* Report button styling */
+.report-btn {
+    position: absolute; /* Position it absolutely within the item-card */
+    top: 10px; /* 10px from the top */
+    right: 10px; /* 10px from the right */
+    background-color: transparent; /* Transparent background */
+    color: #333; /* Dark color for the icon */
+    border: none; /* Remove default border */
+    padding: 10px; /* Padding for the button */
+    font-size: 20px; /* Size of the icon */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.report-btn:hover {
+    color: #ff4d4d; /* Change color to red when hovered */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.report-btn:active {
+    color: #e03e3e; /* Darker red when clicked */
+    transform: scale(1); /* Reset size on click */
+}
+
+.report-btn:focus {
+    outline: none; /* Remove outline when focused */
+}
+
+.item-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limit to 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Adjust based on layout */
+  }
+
+  .item-location {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Limit to 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Adjust based on layout */
+  }
