@@ -10,6 +10,7 @@ if (!isset($_SESSION['user'])) {
 }else{
     include('web_navbar.php');
 }
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
