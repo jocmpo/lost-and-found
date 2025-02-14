@@ -1,16 +1,31 @@
 <?php
-// Enable CORS for API requests
+// Enable CORS for API requests (must be at the very top)
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 // Start session at the beginning
 session_start();
+
+// Include database connection
 include('includes/db.php');
 
-// Ensure database connection is established
-if (!isset($conn)) {
-    die("Database connection not established.");
+if (!$conn) {
+    die("Database connection failed.");
+}
+
+// Load API key from config.php
+$configPath = __DIR__ . '/config.php';
+
+if (!file_exists($configPath)) {
+    die("Error: config.php file not found.");
+}
+
+$config = include($configPath);
+$apiKey = $config['SENDGRID_API_KEY'] ?? null;
+
+if (!$apiKey) {
+    die("Error: API Key is missing.");
 }
 
 $message_sent = "";
@@ -24,29 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Invalid email format.");
     }
 
-    $envPath = __DIR__ . '/.env'; // Ensure correct path
-
-if (!file_exists($envPath)) {
-    die("Error: .env file not found.");
-}
-
-// Read and parse the .env file
-$envContents = file_get_contents($envPath);
-preg_match('/SENDGRID_API_KEY=(.+)/', $envContents, $matches);
-
-if (!isset($matches[1])) {
-    die("Error: API Key not found in .env file.");
-}
-
-$apiKey = trim($matches[1]); // Extract API key
-
-if (empty($apiKey)) {
-    die("Error: API Key is empty. Check your .env file.");
-}
-
-
     $recipient = "annocmpo@gmail.com";
-    $verifiedSender = "annocmpo@gmail.com";  
+    $verifiedSender = "annocmpo@gmail.com";
+
     $emailData = [
         "personalizations" => [[
             "to" => [["email" => $recipient]],
@@ -71,18 +66,19 @@ if (empty($apiKey)) {
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if ($response === false) {
+        die("cURL error: " . curl_error($ch));
+    }
+
     curl_close($ch);
 
     $message_sent = ($httpCode == 202) ? "Email sent successfully!" : "Failed to send email. Error Code: " . $httpCode;
 }
 
-// Include navbar based on session
-if (!isset($_SESSION['user'])) {
-    include('navbar.php');
-} else {
-    include('web_navbar.php');
-}
+include(isset($_SESSION['user']) ? 'web_navbar.php' : 'navbar.php');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
