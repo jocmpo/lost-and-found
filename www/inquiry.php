@@ -28,6 +28,7 @@ if (!$apiKey) {
     die("Error: API Key is missing.");
 }
 
+
 $message_sent = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

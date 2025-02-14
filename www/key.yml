@@ -1,0 +1,12 @@
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    env:
+      SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send email using SendGrid
+        run: |
+          php inquiry.php
