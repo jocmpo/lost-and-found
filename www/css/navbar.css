@@ -1,0 +1,60 @@
+@media only screen and (max-width: 768px) {
+    .footerdiv {
+        margin: 0;
+        position: fixed;
+        z-index: 1000; /* Ensures it stays on top of other elements */
+    }
+
+    .footerlist {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #4b84ff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        z-index: 1000; /* Ensures it stays on top of other elements */
+    }
+
+    .footeritem {
+        display: inline-block;
+        text-align: center;
+        min-width: 70px;
+        list-style: none;
+    }
+
+    .footeritem a {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-decoration: none;
+        display: inline-block;
+        border: 1px;
+    }
+
+    .footeritem a:hover:not(.active) {
+        background-color: #2f62d1;
+    }
+
+    .footerlist {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Ensures it stays on top of other elements */
+    }
+
+    .footeritem {
+        float: left;
+    }
+}
+
+/* Add margin to content that comes from another file */
+.content-wrapper {
+    margin-bottom: 150px; /* Adjust to ensure no overlap with the footer */
+}

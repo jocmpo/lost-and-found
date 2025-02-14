@@ -1,0 +1,371 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #14171a;  /* Dark color for headings */
+}
+
+
+main {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;  /* Makes the labels bold */
+}
+
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.location-input input[type="text"] {
+    width: 97%; 
+}
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+button {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: auto;
+}
+
+#post-item {
+    background-color: #1877f2;
+    color: white;
+}
+
+#post-item:hover {
+    background-color: #145dbb;
+}
+
+.cancel-button {
+    background-color: #e4e6eb; /* Red color for cancel */
+    color: #333;
+}
+
+.cancel-button:hover {
+    background-color: #d6d8db;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+#post-item, .cancel-button {
+    padding: 10px 25px 10px 25px; /* Ensures both buttons take up nearly half of the container width */
+}
+
+/* Camera and File Upload Section */
+.camera-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.camera-container label {
+    margin-right: 1px;
+}
+
+input[type="file"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.camera-button {
+    background-color: #555555;
+    padding: 12px; 
+    border: none;
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.camera-button i {
+    font-size: 1.5em;
+    color: white;
+}
+.camera-button:hover {
+    background-color: #333333; /* Darker shade for hover effect */
+}
+/* Camera Dropdown (initially hidden) */
+#camera-dropdown {
+    display: none;
+    margin-top: 20px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+canvas {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.capture-button, .retake-button {
+    padding: 16px 20px; /* Slightly larger padding for a more modern look */
+    font-size: 1.2em; /* Larger font size */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.capture-button {
+    background-color: #4CAF50; /* Green for capture */
+    color: white;
+}
+
+.capture-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.retake-button {
+    background-color: #FF5733; /* Red for retake */
+    color: white;
+}
+
+.retake-button:hover {
+    background-color: #e04e2b; /* Darker red on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+#preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Map Styling */
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Hidden Input for Captured Image */
+input[type="hidden"] {
+    display: none;
+}
+
+/* Error Message Styling */
+p.error {
+    color: red;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive Design (Mobile View) */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        margin: 80px 10px 10px 10px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+    }
+
+    .camera-container input[type="file"] {
+        margin-right: 0;
+    }
+
+    .camera-button {
+        display: none;
+    }
+
+    .button-container {
+        flex-direction: row;
+        align-items: center;
+       width: 100%;
+    }
+
+    .capture-button,
+    .retake-button {
+        margin-bottom: 10px;
+    }
+
+    .location-input input[type="text"] {
+        width: 95%; 
+    }
+}
+
+/* Responsive Design for smaller mobile screens (less than 480px) */
+@media (max-width: 480px) {
+    label {
+        font-size: 1em;
+    }
+
+    button {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .camera-container {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .camera-container input[type="file"] {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    input[type="file"] {
+        width: 100%; /* Makes the input take up the full width of its container */
+        max-width: 90%; /* Optional: Sets a maximum width */
+    }
+
+    #map {
+        height: 300px;
+    }
+}
+
+.suggestions {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 600px; /* Adjust as needed */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%;
+    }
+}

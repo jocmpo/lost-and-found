@@ -1,0 +1,162 @@
+nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+
+    top: 0;
+    left: 0;
+    background-color: #ffffff; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 1000;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.3s; 
+  }
+  .sidenav img {
+    padding-right: 5px;
+    transition: 0.3s; 
+  }
+
+
+  .logout a{
+    bottom: 0;
+    text-align: right;
+    margin-top: 100%;
+    padding: 10px;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+ 
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+ 
+.navdiv{
+    margin: 0;
+}
+
+.navdiv ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4b84ff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+.navdiv li {
+    display: inline-block;
+    text-align: center;
+    min-width: 70px;
+    list-style: none;
+    
+}
+
+.navdiv li span {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-right: 15px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px;
+}
+
+.navdiv span:hover:not(.active) {
+    background-color: #296dff;
+}
+
+/* Footer styles */
+.footerdiv{
+  margin: 0;
+}
+
+.footerlist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4b84ff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-evenly; /* Evenly space the items */
+  align-items: center; /* Vertically center the items */
+}
+
+.footeritem {
+  text-align: center;
+  list-style: none;
+}
+
+.footeritem a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin: 0; /* Remove margin to control spacing via flexbox */
+  text-decoration: none;
+  display: inline-block;
+  border: 1px;
+}
+
+.footeritem a:hover:not(.active) {
+  background-color: #2f62d1;
+}
+
+/* Media query for mobile view */
+@media (max-width: 500px) {
+  .footerlist {
+    display: flex;
+    flex-direction: row; /* Align items in a row */
+    justify-content: space-between; /* Space out the items evenly */
+  }
+
+  .footeritem a {
+    padding: 10px 12px; /* Adjust padding for better mobile view */
+    margin: 0 5px; /* Add horizontal margin for spacing between items */
+  }
+}
+
+/* Media query for larger screens */
+@media (min-width: 500px) {
+  .footerlist {
+    top: 0;
+    bottom: auto;
+    right: 0;
+    left: auto;
+    width: auto;
+  }
+  
+  .footeritem {
+    float: right;
+  }
+}
+}

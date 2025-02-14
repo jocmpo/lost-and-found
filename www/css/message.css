@@ -1,0 +1,627 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 100%;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Chat Container */
+.chat-container {
+    display: flex;
+    height: 100%;  
+    background-color: #fff;
+    overflow: hidden; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0;
+
+}
+.side {
+    display: flex;
+    height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Side Navbar (User List) */
+.user-list {
+    width: 300px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    position: fixed; /* Keep it fixed on the left */
+    top: 0;
+    left: 0; /* Stay fixed at the left */
+    height: 100%;
+    z-index: 1001;
+}
+
+/* If you want it to slide out or open */
+.user-list.open {
+    left: 0; /* Open the side navbar */
+}
+
+.user-list h3 {
+    color: #14171a;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+
+/* Sidebar - Desktop View */
+@media (min-width: 768px) {
+
+    .user-list {
+        left: 0; /* Always visible on desktop */
+        width: 300px; /* Ensure fixed width */
+        position: static; /* No longer fixed to toggle */
+        height: 100vh; /* Full height */
+        border-right: 1px solid #ddd;
+    }
+
+    .toggle-btn {
+        display: white;
+    }
+
+    .close-btn {
+        display: none; /* Hide close button on desktop */
+    }
+}
+
+/* Sidebar - Mobile View */
+@media (max-width: 767px) {
+    .user-list {
+        left: -100%; /* Hidden by default */
+        width: 50vw; /* Half screen width */
+        position: fixed;
+    }
+
+    .user-list.open {
+        left: 0; /* Show sidebar when open */
+    }
+
+    .chat-box {
+        margin-left: 0; /* No margin on mobile */
+    }
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+@media (max-width: 767px) {
+    
+    .search-bar {
+    margin-top: 0;
+    }
+}
+.search-bar input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+}
+
+.search-bar button {
+    width: 20%;
+    background-color: #296dff;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #4b84ff;
+}
+
+/* User Links */
+.user-list a {
+    display: block;
+    color: #14171a;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-list a:hover {
+    background-color: #e6f2ff;
+}
+
+.user-list a.no-hover:hover {
+    background-color: transparent;
+}
+.close-btn {
+    position: relative; /* Fixes it to the top-right of .user-list */
+    top: 10px;
+    left: 85%;
+    font-size: 1.8em; /* Slightly larger for better visibility */
+    color: #4b84ff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: #296dff;
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+    color: #256EBB; /* Adjust to your theme color */
+}
+
+/* Toggle (Hamburger) Button */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 9999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.toggle-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Chat Box */
+.chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 20px;
+    margin-top: 4px; /* Matches the navbar height */
+    overflow-y: auto; /* Enables scrolling within the chat box */
+    max-height: 100vh; /* Adjust to reserve space for navbar and footer */
+}
+.chat-box h3 {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #14171a;
+}
+
+/* Messages */
+.message {
+    position: relative;
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Sent Message (Right-aligned) */
+.message.sent {
+    background-color: #4b84ff; /* Main color */
+    color: white;
+    margin-left: auto;
+    border-top-right-radius: 0;
+    text-align: left;
+}
+
+.message.sent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 0 10px;
+    border-color: transparent transparent transparent #4b84ff;
+}
+
+/* Received Message (Left-aligned) */
+.message.received {
+    background-color: #f0f0f0; /* Light grey */
+    color: #333;
+    margin-right: auto;
+    border-top-left-radius: 0;
+    text-align: left;
+}
+
+.message.received::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 0;
+    border-color: transparent #f0f0f0 transparent transparent;
+}
+
+/* Ensure Alignment */
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message small {
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .body{
+        margin: 0;
+        padding: 0;
+    }
+    .chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 20px;
+    margin-top: 4px; /* Matches the navbar height */
+    overflow-y: auto; /* Enables scrolling within the chat box */
+    max-height: calc(100vh - 10px); /* Adjust to reserve space for navbar and footer */
+}
+
+    .chat-container {
+        flex-direction: column;
+    }
+
+    .chat-box {
+        margin-left: 0;
+    }
+
+
+    .toggle-btn {
+        top: 15px;
+        left: 15px;
+        z-index: 1;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+    .chat-box h3 {
+        margin-top: 5px; /* Add space below the hamburger icon */
+    }
+}
+@media (min-width: 768px) {
+    .toggle-btn {
+        display: none; /* Hide toggle button for screens larger than or equal to 768px */
+    }
+}
+/* Hide the image when the 'hidden' class is added */
+.hidden {
+    display: none;
+}
+
+#image {
+    position: fixed; /* Fix the image in place */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Offset the image to truly center */
+    width: 150px; /* Set the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; /* Adjusts image size to fit the screen */
+    height: auto;
+}
+
+/* Style for the placeholder text */
+.chat-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Use fixed positioning to cover the entire viewport */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+    color: white; /* White text for contrast */
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    max-height: 100%; /* Ensure it doesn’t exceed the height */
+    width: 100%; /* Make sure it spans the whole width */
+    height: 100%; /* Ensure it spans the whole height of the page */
+}
+
+.chat-placeholder p {
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .chat-placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed; /* Fixed to cover the entire viewport */
+        left: 0; /* Ensures it starts from the leftmost side */
+        top: 0; /* Ensures it starts from the top */
+        font-size: 1.5em;
+        text-align: left;
+        font-weight: bold;
+        padding: 2px;
+        margin: 0; 
+        padding: 0;
+        box-sizing: border-box; 
+    }
+    
+}
+
+/* Back button styling */
+.back-btn-container {
+    position: fixed;
+    bottom: 10px;
+    width: 10%;
+    z-index: 1; /* Ensure it stays above other content */
+}
+
+.back-btn {
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    .toggle-btn {
+        right: 10px; /* Moves the button to the left side */
+        left: auto; /* Resets the right positioning */
+    }
+}
+.fixed-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    color: #333;
+   
+}
+
+.fixed-header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep the text color the same */
+}
+
+.fixed-header a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.profile-img {
+    width: 40px; /* Adjust image size */
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-img {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Adds space between the image and name */
+}
+
+
+/* Messages Container */
+.messages {
+    max-height: calc(100vh - 190px); 
+    overflow-y: auto;  
+    padding-right: 10px; 
+}
+
+.image-upload-btn {
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+/* Chat Box */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* General Message Form */
+.message-form {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px 15px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Adjust for Desktop with Sidebar */
+@media (min-width: 768px) {
+    .message-form {
+        left: 350px; 
+        width: calc(100% - 380px); 
+        margin: 0;
+    }
+    
+}
+
+/* Message Input Field */
+.message-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.message-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Submit Button Hover Effect */
+.message-form button:hover {
+    background-color: #296dff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+    .message-form {
+        left: 0;
+        width: 100%; /* Full width on smaller screens */
+    }
+    .messages {
+        max-height: calc(100vh - 150px); 
+    }
+}
+
+@media (max-width: 767px) {
+    .message-form input[type="text"] {
+        margin-bottom: 5px; 
+    }
+        /* Style the button */
+    button[type="submit"] {
+        margin-bottom: 5px;
+        margin-right: 20px;
+    }
+}
+
+/* Style the button */
+button[type="submit"] {
+    background-color: #256EBB; /* Blue background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding for size */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Style the icon */
+button[type="submit"] i {
+    margin-right: 8px; 
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+    background-color: #1e5a9e; /* Darker blue on hover */
+}
+
+/* Optional: Focus effect */
+button[type="submit"]:focus {
+    outline: none; /* Removes the default outline */
+    box-shadow: 0 0 0 2px rgba(37, 110, 187, 0.5); /* Adds a blue outline for accessibility */
+}
+.upload-icon {
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.chat-image {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+#imageUpload {
+    display: none;
+}
+
+#imageUpload {
+    display: none; /* Hide the file input */
+}
+
+#messageInput {
+    width: 100%;
+    min-height: 40px; /* Default height */
+    max-height: 120px; /* Maximum height when an image is previewed */
+    resize: none; /* Prevent resizing manually */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: height 0.3s ease-in-out; /* Smooth transition */
+    box-sizing: border-box;
+}
+
+#messageInput:focus {
+    outline: none;
+}
+
+.preview-image {
+    display: none; /* Hide preview by default */
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.image-upload-btn {
+    cursor: pointer;
+}
+
+/* Mobile View: Hide user list by default, show toggle button */
+@media (max-width: 768px) {
+    .user-list {
+        transform: translateX(-100%); 
+        position: fixed;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .toggle-btn {
+        display: block; 
+    }
+
+    /* When menu is open, hide the toggle button */
+    .user-list.open ~ .toggle-btn {
+        display: none; /* Hide when menu is open */
+    }
+
+    .user-list.open {
+        transform: translateX(0); /* Show menu */
+    }
+}

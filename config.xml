@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.myapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>FindIt</name>
+    <description>Sample Apache Cordova App</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+
+    <content src="https://lostandfound.free.nf/index.html" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-intent href="https://lostandfound.free.nf/*" />
+    <access origin="https://lostandfound.free.nf" />
+    <access origin="*" />
+
+    <preference name="scheme" value="http" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="android-targetSdkVersion" value="33" />
+    <preference name="CrosswalkEnable" value="true" />
+    <preference name="WebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="OverrideUserAgent" value="Mozilla/5.0 Google" />
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <splash src="res/screen/android/splash.png" density="mdpi" />
+        <splash src="res/screen/android/splash.png" density="hdpi" />
+        <splash src="res/screen/android/splash.png" density="xhdpi" />
+    </platform>
+</widget>

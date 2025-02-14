@@ -1,0 +1,475 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #14171a;
+}
+
+h2, h3, h4 {
+    color: #14171a;
+}
+h4 {
+    color: #14171a;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+/* Item Detail Styling */
+.item-detail {
+    max-width: 100%;
+    margin: 10px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Item Detail Styling */
+.item-info {
+    display: flex;
+    flex-direction: row; /* Aligns the image and details side by side */
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns both items to the top */
+    gap: 50px;
+}
+
+.item-image {
+    width: 100%;    
+    height: 100%;   
+    overflow: hidden; 
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+    height: 100%; 
+}
+
+.item-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.item-details p {
+    font-size: 1rem;
+    margin-bottom: 1px;
+    color: #666;
+}
+
+.item-details a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.item-details a:hover {
+    text-decoration: underline;
+}
+
+
+/* Related Items Section */
+.related-items {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; 
+}
+
+.related-item {
+    justify-content: center; /* Centers items horizontally */
+    flex: 0 0 20%;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;           /* Occupies full container width */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+    flex-direction: column;
+}
+
+.related-item {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    cursor: default; /* Use default cursor if not dragging */
+  }
+  
+.related-item img {
+    max-width: 100%;
+    width: 100%;
+    height: 200px;
+    object-fit: fill; 
+}
+
+.related-item p {
+    margin-top: 10px;
+    color: #1da1f2;
+    font-size: 1rem;
+}
+.related-item a {
+    text-decoration: none;
+    color: #1da1f2;
+}
+.related-item a:hover {
+    text-decoration: underline;
+}
+.related-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel Navigation (For Related Items) */
+.related-items::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for a cleaner look */
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .item-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+   
+    .item-info img {
+        max-width: 100%;
+        height: auto;
+    }
+    .item-details {
+        width: 100%;
+        height: 100%; 
+    }
+    .related-items {
+        gap: 15px;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .related-item {
+        min-width: 60%; /* Nearly full viewport width so that one slide is fully visible */
+        scroll-snap-align: center;
+    }
+    .related-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+
+    }
+    .prev, .next {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
+
+/* Larger Desktop Screens */
+@media (min-width: 1200px) {
+    .item-detail {
+        padding: 40px;
+    }
+
+    .item-info h3 {
+        font-size: 2rem;
+    }
+}
+/* Chat Link Styling */
+a.chat-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1da1f2; /* Twitter blue background */
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+a.chat-link i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 18px; /* Size of the icon */
+}
+
+/* Hover effect for the chat link */
+a.chat-link:hover {
+    background-color: #1A4B8A; /* Darker blue on hover */
+}
+
+/* Optional: Focus style for accessibility */
+a.chat-link:focus {
+    outline: 2px solid #1A4B8A;
+    outline-offset: 2px;
+}
+.custom-divider {
+    margin-top: 10px;      
+    border: none;          
+    border-top: 2px solid #ccc;  
+    width: 100%;           
+    margin-bottom: 10px;
+}
+
+.title-status {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    
+  }
+  
+
+  .title-status h3,
+  .title-status h4 {
+    margin: 0;
+  }
+  
+.status {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: capitalize;
+    margin-top: 5px;
+    
+    /* Center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Optional: Center vertically if needed */
+    display: block;          /* Makes the element block level for vertical centering */
+    text-align: center;      /* Centers the content inside the status element */
+}
+
+.status.found {
+    background-color: #e6ffed; /* Soft Green */
+    color: #1f7a1f;
+    border: 1px solid #b2e8b2;
+}
+
+.status.claimed {
+    background-color: #fff8e1; /* Soft Yellow */
+    color: #a68500;
+    border: 1px solid #ffe59a;
+}
+
+.status.lost {
+    background-color: #ffe6e6; /* Soft Red */
+    color: #a72e2e;
+    border: 1px solid #ffb3b3;
+}
+
+/* CSS Variables for easy color management */
+:root {
+    --primary-color: #256ebb;
+    --bg-color: #f9f9f9;
+    --btn-bg: rgba(0, 0, 0, 0.4);
+    --btn-hover-bg: rgba(0, 0, 0, 0.8);
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Carousel Container: Fixed Size */
+  .carousel-container {
+    position: relative;
+    width: 50%; 
+    height: 500px; 
+    margin: 10px auto;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 6px 15px var(--shadow-color);
+    display: flex; 
+    align-items: center; 
+    background-color: #f5f5f5; /* Very light black transparency */
+    justify-content: center; 
+}
+
+  @media (max-width: 768px) {
+    .carousel-container {
+        position: relative;
+        width: 100%;          /* Fixed width */
+        height: 100%;         /* Fixed height (adjust as needed) */
+        }
+  }
+
+  /* Carousel Track Container */
+
+  .carousel-track-container {
+    overflow: hidden;
+    height: 100%;  
+}
+  
+  /* Carousel Track */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+  }
+  
+  /* Each Slide */
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Slide Images */
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;         /* Make the image fill the container */
+    display: block;
+    object-fit: contain;    /* Crop or scale image to fill without distortion */
+  }
+  
+  /* Navigation Buttons */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    background-color: var(--btn-bg);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    width: 35px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .carousel-btn.prev {
+    left: 5px;
+  }
+  
+  .carousel-btn.next {
+    right: 5px;
+  }
+  
+  .carousel-btn:hover {
+    background-color: var(--btn-hover-bg);
+  }
+  
+@media (max-width: 768px) {
+    .carousel-btn {
+      font-size: 1.5rem;
+      width: 35px;
+      height: 45px;
+    }
+  }
+ /* Modal Styles */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#modal-image {
+    max-width: 80%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+.modal-content {
+    top: 15%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+}
+
+
+/* Zoomed state */
+.modal-content img.zoomed {
+    transform: scale(1.5); /* Scale the image to 1.5x its original size */
+    cursor: zoom-out; /* Change cursor to indicate zoom-out functionality */
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    font-size: 32px; /* Slightly larger font size for better visibility */
+    color: white; /* Darker color for better contrast */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.close-btn:hover {
+    color: #ff0000; /* Change color to red on hover for attention */
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Modal Display when Targeted */
+.modal:target {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+
+    #modal-image {
+        margin-top: 50%;
+    }
+    
+}
