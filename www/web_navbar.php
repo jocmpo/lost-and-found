@@ -39,6 +39,7 @@ $stmt->close();
         <a href="profile.php">Profile</a>
         <a href="faq.php">FAQ</a>
         <a href="about.php">About</a>
+        <a href="inquiry.php">Contact Us</a>
         <a href="terms.php">Terms and Conditions</a>
     </div>
 

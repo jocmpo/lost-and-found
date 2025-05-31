@@ -6,7 +6,6 @@ header("Access-Control-Allow-Headers: Content-Type");
 session_start();
 
 include('includes/db.php');
-include('includes/functions.php');
 
 if (isset($_SESSION['user_id'])) {
     header("Location: dashboard.php");
