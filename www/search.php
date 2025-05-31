@@ -128,8 +128,7 @@ $items_result = mysqli_query($conn, $search_query);
                     <i class="fa fa-ellipsis-h"></i>
                 </button>
 
-                    <img src="<?php echo htmlspecialchars($profile_photo); ?>" alt="<?php echo htmlspecialchars($user['name']); ?>'s Profile Picture" class="profile-img" >
-                    <a href="profile.php?user_id=<?php echo $user['id']; ?>" class="profile-link">
+                    <img src="<?php echo htmlspecialchars(!empty($profile_photo) ? $profile_photo : 'user.png'); ?>" alt="<?php echo htmlspecialchars($user['name']); ?>'s Profile Picture" class="profile-img"><a href="profile.php?user_id=<?php echo $user['id']; ?>" class="profile-link">
                             <?php echo htmlspecialchars($user['name']); ?>
                         </a>
                     </span>
