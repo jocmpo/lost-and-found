@@ -16,7 +16,7 @@ function updateLocationInputs(lat, lng) {
     document.getElementById('longitude').value = lng;
 
     // Reverse geocode using OpenCage API
-    const apiKey = '9ac6f13e83b3424fac80a49e713503fd'; 
+    const apiKey = '47fce8f1add84c0f9b517fdf9eb8dc83'; 
     fetch(`https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${lat}+${lng}&no_annotations=1`)
         .then(response => response.json())
         .then(data => {
@@ -74,7 +74,7 @@ locationInput.addEventListener('input', function () {
     const query = locationInput.value.trim();
 
     if (query.length > 2) { // Only start searching after 3 characters
-        const apiKey = '9ac6f13e83b3424fac80a49e713503fd'; 
+        const apiKey = '47fce8f1add84c0f9b517fdf9eb8dc83'; 
  //       for whole world
  //      fetch(`https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&no_annotations=1`) 
             fetch(`https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&no_annotations=1&countrycode=PH`)

@@ -63,7 +63,16 @@ $images = explode(',', $item['image']);
                         <?php if (!empty(trim($img))): ?>
                             <li class="carousel-slide">
                                 <a href="#" class="zoom-link">
-                                    <img src="uploads/<?php echo htmlspecialchars($img); ?>" alt="Item Image">
+                                    <?php
+$imagePath = 'uploads/' . $img;
+$defaultImage = 'css/img/no-pictures.png';
+
+// Use default if image is missing or file doesn't exist
+$finalImage = (!empty($img) && file_exists($imagePath)) ? $imagePath : $defaultImage;
+?>
+
+<img src="<?php echo htmlspecialchars($finalImage); ?>" alt="Item Image">
+
                                 </a>
                             </li>
                         <?php endif; ?>

@@ -162,16 +162,24 @@ include('sidebar.php');
                     <td>
                     <?php 
                         $images = explode(',', $item['image']); 
-                        
-                        if (!empty($images[0])): 
+                        $firstImage = trim($images[0]);
+
+                        if (!empty($firstImage)) {
                     ?>
-                        <img src="../uploads/<?php echo htmlspecialchars($images[0]); ?>" 
+                        <img src="../uploads/<?php echo htmlspecialchars($firstImage); ?>" 
                             onerror="this.onerror=null;this.src='../css/img/no-pictures.png'; this.classList.add('fallback-image');" 
                             class="zoom-image" 
-                            style="max-width: 150px; height: auto;" /> 
-                    <?php else: ?>
-                            <img src="../css/img/photos.png" alt="Default Image"  style="max-width: 150px; height: auto;" >
-                        <?php endif; ?>
+                            style="max-width: 150px; height: auto;" />
+                    <?php 
+                        } else {
+                    ?>
+                        <img src="../css/img/no-pictures.png" 
+                            class="zoom-image fallback-image" 
+                            style="max-width: 150px; height: auto;" />
+                    <?php 
+                        }
+                    ?>
+                    </td>
 
                     </td>
                     <td><?php echo htmlspecialchars($item['poster_name']); ?></td>
